@@ -1,5 +1,13 @@
 <h1>New Post</h1>
 
+ <% @user = User.find_by({"id" => session["user_id"]}) %>
+     
+
+
+ <% if @user == nil %>
+<p>Must Login</p>
+  <% else %>
+
 <%# TODO: only display form when user is logged in %>
 <form action="/posts" method="post">
   <p>
@@ -17,3 +25,5 @@
   <button>Save</button>
   <a href="/posts">Cancel</a>
 </form>
+
+<% end %>
